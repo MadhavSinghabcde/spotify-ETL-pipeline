@@ -32,7 +32,7 @@ pip install spotipy
 Error Handling:
 > Lambda: 1) Make sure to provide proper role-permissions for S3 Bucket as well as its objects. Providing permissions to just object and not bucket might cause problems in transformation phase as function needs to list objects of that bucket and providing it objects access does not automatically make it have certain bucket permissions assigned. 2) Make sure to set proper time-outs. 3) Add additional packges used in the Layers section.
 
-> S3: 1) Event Notification triggers for object put should be set from a certain folder object PUT event, and not whole of bucket, as it might create a never-ending loop if the destination bucket is the same bucket. Or you can just set a different destination bucket. 2) Have the lambda function delete the raw data after it has processed it, else it would be processing same data again and again.
+> S3: 1) Event Notification triggers for object PUT event should be set from a specific folder path where it is PUT, and not whole of bucket, as it might create a never-ending loop if the destination bucket is the same bucket. Or you can just set a different destination bucket. 2) Have the lambda function delete the raw data after it has processed it, else it would be processing same data again and again.
 
 
 
